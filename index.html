@@ -1,325 +1,187 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>paisa143 - Dheeraj Kumar | 24x7 Work From Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            overflow-x: hidden;
-        }
-        header {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            animation: slideDown 1s ease;
-        }
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        .logo span { color: #fbbf24; }
-        .nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-        }
-        .hero {
-            margin-top: 80px;
-            padding: 100px 5%;
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600') center/cover;
-            position: relative;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.8);
-        }
-        .hero-content {
-            position: relative;
-            max-width: 800px;
-            margin: auto;
-            animation: fadeUp 1.5s ease;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #fbbf24;
-            object-fit: cover;
-            margin-bottom: 20px;
-            animation: zoomIn 1s ease;
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #fbbf24, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p { font-size: 1.2rem; margin-bottom: 10px; }
-        .owner-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fbbf24;
-            margin: 15px 0;
-        }
-        .tag {
-            display: inline-block;
-            background: #10b981;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .btn {
-            background: linear-gradient(90deg, #f59e0b, #d97706);
-            color: white;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
-        .container { max-width: 1200px; margin: auto; padding: 80px 5%; }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-        .section-title span { color: #fbbf24; }
-        .jobs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .job-card {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #334155;
-            transition: 0.4s;
-        }
-        .job-card:hover {
-            transform: translateY(-10px);
-            border-color: #fbbf24;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-        .job-card h3 { color: #fbbf24; margin-bottom: 15px; font-size: 1.5rem; }
-        .job-card ul { list-style: none; margin: 20px 0; }
-        .job-card li { margin: 10px 0; }
-        .job-card li::before { content: '✓ '; color: #10b981; font-weight: bold; }
-        .form-section {
-            background: #1e293b;
-            border-radius: 20px;
-            padding: 50px;
-            margin-top: 80px;
-        }
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            color: white;
-            font-family: 'Poppins';
-        }
-        .full { grid-column: 1 / -1; }
-        footer {
-            background: #0f172a;
-            text-align: center;
-            padding: 30px 5%;
-            border-top: 1px solid #334155;
-            margin-top: 80px;
-        }
-        .contact-info a {
-            color: #fbbf24;
-            text-decoration: none;
-        }
-        @media(max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .form-grid { grid-template-columns: 1fr; }
-            .nav a { display: none; }
-            .profile-pic { width: 120px; height: 120px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Form Filling Jobs | ₹15 Per Form | UPI Only | Paisa143</title>
+  <meta name="description" content="Ghar baithe mobile se form bharo, ₹500 daily kamao. Payment UPI Only. No investment.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #0a0f1c; color: #fff; line-height: 1.6; }
+    .top-bar { background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #000; text-align: center; padding: 12px; font-weight: 700; font-size: 14px; }
+    .hero { background: radial-gradient(circle at top, #1e293b 0%, #0a0f1c 100%); padding: 70px 20px; text-align: center; }
+    .hero h1 { font-size: 44px; font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
+    .hero h1 span { background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 18px; color: #cbd5e1; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .btn { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #000; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; box-shadow: 0 5px 25px rgba(251, 191, 36, 0.4); border: none; cursor: pointer; font-size: 16px; }
+    .stats { display: flex; justify-content: center; gap: 50px; margin: 50px 0 20px; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat h3 { font-size: 38px; color: #fbbf24; font-weight: 800; }
+    .stat p { color: #94a3b8; font-size: 14px; margin-top: 5px; }
+    .section { max-width: 1150px; margin: 70px auto; padding: 0 20px; }
+    .section h2 { text-align: center; font-size: 34px; margin-bottom: 45px; font-weight: 800; }
+    .section h2 span { color: #fbbf24; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .card { background: linear-gradient(145deg, #1e293b, #141b2d); padding: 35px; border-radius: 18px; border: 1px solid #334155; text-align: center; }
+    .card h3 { color: #fbbf24; margin: 15px 0 12px; font-size: 22px; }
+    .card p { color: #cbd5e1; font-size: 15px; }
+    .upi-badge { background: #10b981; color: #000; padding: 6px 14px; border-radius: 25px; font-size: 12px; font-weight: 700; display: inline-block; margin-left: 8px; }
+    .form-section { background: linear-gradient(145deg, #1e293b, #141b2d); padding: 55px 30px; border-radius: 25px; max-width: 750px; margin: 70px auto; border: 2px solid #fbbf24; }
+    .form-section h2 { text-align: center; margin-bottom: 35px; }
+    .form-grid { display: grid; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-grid input, .form-grid select { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #334155; background: #0a0f1c; color: #fff; font-size: 15px; font-family: 'Poppins', sans-serif; }
+    .form-grid input::file-selector-button { background: #fbbf24; color: #000; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-right: 12px; }
+    .form-grid label { color: #cbd5e1; font-size: 14px; margin-bottom: -12px; display: block; font-weight: 500; }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .review { background: linear-gradient(145deg, #1e293b, #141b2d); padding: 30px; border-radius: 18px; border-left: 5px solid #fbbf24; }
+    .review p { color: #cbd5e1; margin-bottom: 18px; font-size: 15px; }
+    .review .name { color: #fbbf24; font-weight: 600; font-size: 15px; }
+    .faq-item { background: #1e293b; padding: 25px; border-radius: 15px; margin-bottom: 18px; border: 1px solid #334155; }
+    .faq-item h4 { color: #fbbf24; margin-bottom: 10px; font-size: 18px; }
+    .faq-item p { color: #cbd5e1; }
+    footer { background: #020617; padding: 50px 20px; text-align: center; margin-top: 70px; border-top: 1px solid #1e293b; }
+    footer p { color: #64748b; margin: 8px 0; }
+    footer a { color: #fbbf24; text-decoration: none; }
+    .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 16px 22px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5); z-index: 999; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 30px; }
+      .stats { gap: 25px; }
+      .stat h3 { font-size: 30px; }
+      .form-row { grid-template-columns: 1fr; }
+      .section { margin: 50px auto; }
+      .form-section { padding: 40px 20px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav">
-            <div class="logo">paisa<span>143</span></div>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#jobs">Jobs</a>
-                <a href="#apply">Apply Now</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <img src="profile.jpg" alt="Dheeraj Kumar" class="profile-pic">
-            <div class="tag">24x7 OPEN - DAILY PAYMENT</div>
-            <h1>Ghar Baithe Typing & Calling Jobs</h1>
-            <div class="owner-name">Founder: Dheeraj Kumar</div>
-            <p>10th/12th pass ke liye. Laptop/Mobile se kaam. Daily ₹500 - ₹2000 tak kamao. No Investment.</p>
-            <a href="#apply" class="btn">Abhi Apply Kare</a>
-        </div>
-    </section>
-
-    <div class="container">
-        <h2 class="section-title">Available <span>Jobs</span></h2>
-        <div class="jobs" id="jobs">
-            <div class="job-card">
-                <h3>1. Data Typing Work</h3>
-                <p>Simple PDF to Word/Excel typing. Hindi + English.</p>
-                <ul>
-                    <li>Payment: ₹20 per page</li>
-                    <li>Daily 20-30 page target</li>
-                    <li>Work Time: Aapke hisaab se</li>
-                    <li>Weekly Payment</li>
-                </ul>
-                <a href="#apply" class="btn">Apply Now</a>
-            </div>
-            
-            <div class="job-card">
-                <h3>2. Tele Calling Work</h3>
-                <p>Customers ko call karke product ke baare me batana.</p>
-                <ul>
-                    <li>Salary: ₹8,000 - ₹15,000/month</li>
-                    <li>Plus ₹50 per call incentive</li>
-                    <li>Training Free Di Jayegi</li>
-                    <li>24x7 Shift Available</li>
-                </ul>
-                <a href="#apply" class="btn">Apply Now</a>
-            </div>
-
-            <div class="job-card">
-                <h3>3. Form Filling Work</h3>
-                <p>Online forms bharne ka kaam. Copy-paste type.</p>
-                <ul>
-                    <li>Payment: ₹15 per form</li>
-                    <li>Daily 50+ forms milenge</li>
-                    <li>Mobile se bhi ho jayega</li>
-                    <li>Instant Payment</li>
-                </ul>
-                <a href="#apply" class="btn">Apply Now</a>
-            </div>
-        </div>
-
-        <section class="form-section" id="apply">
-            <h2 class="section-title">Job Ke Liye <span>Apply Kare</span></h2>
-            <form action="https://formsubmit.co/aannssshh24@gmail.com" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobile Number *</label>
-                        <input type="tel" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email ID</label>
-                        <input type="email">
-                    </div>
-                    <div class="form-group">
-                        <label>Age *</label>
-                        <input type="number" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Qualification *</label>
-                        <select required>
-                            <option value="">Select Kare</option>
-                            <option>10th Pass</option>
-                            <option>12th Pass</option>
-                            <option>Graduate</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Kaunsa Job Chahiye? *</label>
-                        <select required>
-                            <option value="">Select Kare</option>
-                            <option>Data Typing Work</option>
-                            <option>Tele Calling Work</option>
-                            <option>Form Filling Work</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
-                    </div>
-                </div>
-            </form>
-        </section>
+  
+  <div class="top-bar">🔥 UPI ONLY PAYMENT | Daily Raat 9 Baje Transfer | 100 Seats Bachi Hain</div>
+  
+  <section class="hero">
+    <h1>Mobile Se <span>Form Bharo</span>,<br>Ghar Baithe <span>₹500 Daily</span> Kamao</h1>
+    <p>No Investment • UPI Only Payment • 100% Genuine Work • Student/Housewife Friendly</p>
+    <a href="#form" class="btn">Free Registration Start Karo</a>
+    
+    <div class="stats">
+      <div class="stat"><h3>1,432+</h3><p>Active Users</p></div>
+      <div class="stat"><h3>₹15</h3><p>Per Form</p></div>
+      <div class="stat"><h3>UPI Only</h3><p>Instant Payment</p></div>
     </div>
+  </section>
 
-    <footer id="contact">
-        <h3>paisa<span style="color:#fbbf24">143</span></h3>
-        <p><strong>Founder & CEO: Dheeraj Kumar</strong></p>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:aannssshh24@gmail.com">aannssshh24@gmail.com</a></p>
-            <p>WhatsApp: <a href="https://wa.me/916299116420">+91 6299116420</a></p>
+  <section class="section">
+    <h2>Kaam Kaise Karega? <span>3 Easy Steps</span></h2>
+    <div class="features">
+      <div class="card">
+        <h3>1. Register Karo</h3>
+        <p>Neeche form bharo + UPI ID daalo. Resume upload karo. City/State select karo. 2 min lagega.</p>
+      </div>
+      <div class="card">
+        <h3>2. Form Bharo</h3>
+        <p>WhatsApp pe daily 50+ forms milenge. Mobile se copy-paste ka kaam hai bas.</p>
+      </div>
+      <div class="card">
+        <h3>3. UPI Payment Pao</h3>
+        <p>Har form ka ₹15. Raat 9 baje se pehle aapke UPI me payment. <span class="upi-badge">UPI ONLY</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" id="form">
+    <h2>Free Registration <span>Start Karein</span></h2>
+    <form action="https://formsubmit.co/aannsshh24@gmail.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://dhirajkumar818.github.io/thankyou.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New Form Filling Job Application - Paisa143">
+      
+      <div class="form-grid">
+        <input type="text" name="Full_Name" placeholder="Apna Pura Naam *" required>
+        <input type="tel" name="Mobile" placeholder="WhatsApp Mobile Number *" required>
+        
+        <div class="form-row">
+          <input type="number" name="Age" placeholder="Apki Age *" min="18" max="60" required>
+          <select name="Education" required>
+            <option value="">Education Select Karein *</option>
+            <option>10th Pass</option>
+            <option>12th Pass</option>
+            <option>Graduate</option>
+            <option>Post Graduate</option>
+            <option>Other</option>
+          </select>
         </div>
-        <p style="margin-top:15px; opacity:0.6;">© 2026 paisa143. All Rights Reserved. | Bihar Sharif, Bihar</p>
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="thankyou.html">
-<input type="hidden" name="_template" value="table">    
-</footer>
+
+        <div class="form-row">
+          <input type="text" name="City" placeholder="Apka City *" required>
+          <input type="text" name="State" placeholder="Apka State *" required>
+        </div>
+
+        <input type="text" name="Country" placeholder="Country *" value="India" required>
+
+        <div>
+          <label>UPI ID Daalein (Payment Isi Pe Milega) *</label>
+          <input type="text" name="UPI_ID" placeholder="example@paytm / example@ybl / 9876543210@upi" required>
+        </div>
+        
+        <div>
+          <label>Resume Upload Karein (PDF/DOC Max 1MB) *</label>
+          <input type="file" name="Resume" accept=".pdf,.doc,.docx" required>
+        </div>
+
+        <button type="submit" class="btn">Form Submit Karo & ₹50 Bonus Pao</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2>Hamare Users <span>Kya Bolte Hain</span></h2>
+    <div class="testimonials">
+      <div class="review">
+        <p>"College ke baad 2 ghante kaam karta hu. ₹400-500 daily UPI me aa jata hai. Ekdum time pe raat 9 baje."</p>
+        <p class="name">⭐⭐⭐⭐⭐ - Rahul Kumar, Bihar Sharif</p>
+      </div>
+      <div class="review">
+        <p>"Housewife hu. Mahine ka ₹12,000-15,000 UPI se mil jata hai. Koi dikkat nahi. 100% genuine."</p>
+        <p class="name">⭐⭐⭐⭐⭐ - Priya Singh, Patna</p>
+      </div>
+      <div class="review">
+        <p>"Pehle din hi ₹300 UPI me aaya. Ab daily karta hu. Sabse best part time job hai ye."</p>
+        <p class="name">⭐⭐⭐⭐⭐ - Amit Sharma, Delhi</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Common <span>Sawal Jawab</span></h2>
+    <div class="faq-item">
+      <h4>Q. Payment kaise milega?</h4>
+      <p>A. 100% UPI Only Payment. Daily raat 9 baje se pehle aapke diye hue UPI ID pe paise transfer ho jayenge. <strong>No Bank Transfer, No Wallet - Sirf UPI.</strong></p>
+    </div>
+    <div class="faq-item">
+      <h4>Q. UPI ID galat daal diya toh?</h4>
+      <p>A. WhatsApp pe turant contact karo 6299116420. Payment hold ho jayega jab tak sahi UPI nahi dete.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q. Resume aur Address kyun chahiye?</h4>
+      <p>A. Verification ke liye. Taki fake log join na karein. Aapka data 100% safe rahega, kisi se share nahi hoga.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Q. Koi fees ya investment hai?</h4>
+      <p>A. Bilkul nahi. 100% Free joining hai. 1 rupya bhi nahi dena. Ulta join karne pe ₹50 bonus milega.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Paisa143 Form Filling Jobs</strong></p>
+    <p>Payment Method: <span class="upi-badge">UPI ONLY</span></p>
+    <p>Contact: <a href="https://wa.me/916299116420">WhatsApp: +91 62991 16420</a></p>
+    <p>Email: <a href="mailto:aannsshh24@gmail.com">aannsshh24@gmail.com</a></p>
+    <p style="margin-top:20px; font-size:13px;">© 2026 Paisa143. All Rights Reserved. | Bihar Sharif, Bihar</p>
+  </footer>
+
+  <a href="https://wa.me/916299116420?text=Hi, mujhe form filling job ke baare me janna hai" class="whatsapp">💬 WhatsApp</a>
+
+</body>
+</html>
