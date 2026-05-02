@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paisa143 - Dheeraj Kumar | 24x7 Work From Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 1s ease;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        .logo span { color: #fbbf24; }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5%;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600') center/cover;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8);
+        }
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeUp 1.5s ease;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fbbf24;
+            object-fit: cover;
+            margin-bottom: 20px;
+            animation: zoomIn 1s ease;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.2rem; margin-bottom: 10px; }
+        .owner-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin: 15px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #10b981;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .btn {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        .container { max-width: 1200px; margin: auto; padding: 80px 5%; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        .section-title span { color: #fbbf24; }
+        .jobs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .job-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.4s;
+        }
+        .job-card:hover {
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .job-card h3 { color: #fbbf24; margin-bottom: 15px; font-size: 1.5rem; }
+        .job-card ul { list-style: none; margin: 20px 0; }
+        .job-card li { margin: 10px 0; }
+        .job-card li::before { content: '✓ '; color: #10b981; font-weight: bold; }
+        .form-section {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 80px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Poppins';
+        }
+        .full { grid-column: 1 / -1; }
+        footer {
+            background: #0f172a;
+            text-align: center;
+            padding: 30px 5%;
+            border-top: 1px solid #334155;
+            margin-top: 80px;
+        }
+        .contact-info a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .nav a { display: none; }
+            .profile-pic { width: 120px; height: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">paisa<span>143</span></div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#jobs">Jobs</a>
+                <a href="#apply">Apply Now</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="profile.jpg" alt="Dheeraj Kumar" class="profile-pic">
+            <div class="tag">24x7 OPEN - DAILY PAYMENT</div>
+            <h1>Ghar Baithe Typing & Calling Jobs</h1>
+            <div class="owner-name">Founder: Dheeraj Kumar</div>
+            <p>10th/12th pass ke liye. Laptop/Mobile se kaam. Daily ₹500 - ₹2000 tak kamao. No Investment.</p>
+            <a href="#apply" class="btn">Abhi Apply Kare</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Available <span>Jobs</span></h2>
+        <div class="jobs" id="jobs">
+            <div class="job-card">
+                <h3>1. Data Typing Work</h3>
+                <p>Simple PDF to Word/Excel typing. Hindi + English.</p>
+                <ul>
+                    <li>Payment: ₹20 per page</li>
+                    <li>Daily 20-30 page target</li>
+                    <li>Work Time: Aapke hisaab se</li>
+                    <li>Weekly Payment</li>
+                </ul>
+                <a href="#apply" class="btn">Apply Now</a>
+            </div>
+            
+            <div class="job-card">
+                <h3>2. Tele Calling Work</h3>
+                <p>Customers ko call karke product ke baare me batana.</p>
+                <ul>
+                    <li>Salary: ₹8,000 - ₹15,000/month</li>
+                    <li>Plus ₹50 per call incentive</li>
+                    <li>Training Free Di Jayegi</li>
+                    <li>24x7 Shift Available</li>
+                </ul>
+                <a href="#apply" class="btn">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <h3>3. Form Filling Work</h3>
+                <p>Online forms bharne ka kaam. Copy-paste type.</p>
+                <ul>
+                    <li>Payment: ₹15 per form</li>
+                    <li>Daily 50+ forms milenge</li>
+                    <li>Mobile se bhi ho jayega</li>
+                    <li>Instant Payment</li>
+                </ul>
+                <a href="#apply" class="btn">Apply Now</a>
+            </div>
+        </div>
+
+        <section class="form-section" id="apply">
+            <h2 class="section-title">Job Ke Liye <span>Apply Kare</span></h2>
+            <form action="https://formsubmit.co/aannssshh24@gmail.com" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number *</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email ID</label>
+                        <input type="email">
+                    </div>
+                    <div class="form-group">
+                        <label>Age *</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Qualification *</label>
+                        <select required>
+                            <option value="">Select Kare</option>
+                            <option>10th Pass</option>
+                            <option>12th Pass</option>
+                            <option>Graduate</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Kaunsa Job Chahiye? *</label>
+                        <select required>
+                            <option value="">Select Kare</option>
+                            <option>Data Typing Work</option>
+                            <option>Tele Calling Work</option>
+                            <option>Form Filling Work</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <button type="submit" class="btn" style="width: 100%;">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <h3>paisa<span style="color:#fbbf24">143</span></h3>
+        <p><strong>Founder & CEO: Dheeraj Kumar</strong></p>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:aannssshh24@gmail.com">aannssshh24@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/916299116420">+91 6299116420</a></p>
+        </div>
+        <p style="margin-top:15px; opacity:0.6;">© 2026 paisa143. All Rights Reserved. | Bihar Sharif, Bihar</p>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="thankyou.html">
+<input type="hidden" name="_template" value="table">    
+</footer>
